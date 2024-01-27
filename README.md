@@ -63,15 +63,19 @@ $ npm run test:cov
 
 ## Dependecias
 
+``` bash
 # Conección con base de datos de postgres 
-$ npm i pg && 
+$ npm i pg 
 $ npm i @types/pg -D
 
 # ORM typeORM 
 $ npm install --save typeorm
 
+#validator 
+$ npm i --save class-validator class-transformer
+
 ##Integración con la base de datos
-$ npm install --save @nestjs/typeorm typeorm pg(La base de datos que se vaya  a usar, en este caso postgres)
+$ npm install --save @nestjs/typeorm typeorm pg #(La base de datos que se vaya  a usar, en este caso postgres)
 # Configuración 
 <p> Configuración en module
   TypeOrmModule.forRoot({
@@ -84,3 +88,4 @@ $ npm install --save @nestjs/typeorm typeorm pg(La base de datos que se vaya  a 
       autoLoadEntities : true,
       synchronize: true
     }),</p>
+```

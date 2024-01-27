@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { CreatePagoDto } from './dto/create-pago.dto';
 import { UpdatePagoDto } from './dto/update-pago.dto';
@@ -6,7 +5,7 @@ import { UpdatePagoDto } from './dto/update-pago.dto';
 @Injectable()
 export class PagosService {
   create(createPagoDto: CreatePagoDto) {
-    return 'This action adds a new pago';
+    return `This action adds a new pago ${createPagoDto}`;
   }
 
   findAll() {
@@ -18,7 +17,7 @@ export class PagosService {
   }
 
   update(id: number, updatePagoDto: UpdatePagoDto) {
-    return `This action updates a #${id} pago`;
+    return `This action updates a #${id} ${updatePagoDto} pago`;
   }
 
   remove(id: number) {

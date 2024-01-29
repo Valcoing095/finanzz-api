@@ -2,12 +2,12 @@ import { Column, Entity } from "typeorm";
 @Entity()
 export class Pago {
     @Column({primary: true, generated: true})
-    Id: number;
+    id: number;
     @Column()
-    Descripcion: string;
+    descripcion: string;
 
     @Column()    
-    ValorDeuda: number;
+    valorDeuda: number;
 
 
     @Column()

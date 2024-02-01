@@ -1,4 +1,4 @@
-import { Column, Entity } from "typeorm";
+import { Column, DeleteDateColumn, Entity } from "typeorm";
 @Entity()
 export class Client {
     
@@ -6,22 +6,28 @@ export class Client {
     id: number;
 
     @Column()
-    nombre: string;
+    nombre?: string;
     
     @Column()
-    apellido: string;
+    apellido?: string;
 
     @Column()
-    direccion: string;
+    direccion?: string;
 
     @Column()
-    telefono: string;
+    telefono?: string;
 
     @Column()
-    email: string;
+    email?: string;
 
-    @Column()
-    dateRegister: string;
+    @Column( { nullable: true })
+    dateRegister?: string;
+
+    @Column( { nullable: true })
+    password?: string;
+
+    @DeleteDateColumn()
+    deleteAt:Date
 
 
 }

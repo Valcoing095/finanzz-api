@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Body, Injectable } from '@nestjs/common';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -11,17 +11,17 @@ export class ClientsService {
     @InjectRepository(Client)
     private readonly clientRepository: Repository<Client>){}
 
-  create(createClientDto: CreateClientDto) {
-    const client = this.clientRepository.create(createClientDto.Age)
+  create(@Body() createClientDto: CreateClientDto) {
+    const client = this.clientRepository.create(createClientDto)
     return this.clientRepository.save(client) ;
   }
 
   findAll() {
-    return `This action returns all clients`;
+    return this.clientRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} client`;
+  findOne(id) {
+    return  this.clientRepository.findOneBy(id);
   }
 
   update(id: number, updateClientDto: UpdateClientDto) {
@@ -29,6 +29,6 @@ export class ClientsService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} client`;
+    return this.clientRepository.softDelete(id)
   }
 }

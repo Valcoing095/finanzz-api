@@ -3,22 +3,22 @@ import { Column, Entity } from "typeorm";
 export class Prestamo {
     @Column({primary: true, generated:true})
     id: number;
+    
+    @Column()
+    id_cliente :number
+    
+    @Column()
+    valorDeuda : number
+    
+    @Column()
+    cuotas :number
 
     @Column()
-    ID_Prestamo : number
+    tasa_interes :number
     
     @Column()
-    ID_Cliente :number
+    fecha_inicio  : string
     
-    @Column()
-    Monto : number
-    
-    @Column()
-    Tasa_Interes :number
-    
-    @Column()
-    Fecha_Inicio  : string
-    
-    @Column()
-    Fecha_Termino : string
+    @Column({nullable:true})
+    fecha_Termino : string
 }

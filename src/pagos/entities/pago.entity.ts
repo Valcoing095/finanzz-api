@@ -7,10 +7,9 @@ export class Pago {
     descripcion: string;
 
     @Column()    
-    valorDeuda: number;
-
+    valorCuota: number;
 
     @Column()
-    id_client: number;
+    id_deuda: number;
 
 }

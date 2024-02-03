@@ -1,4 +1,3 @@
-
 import {  IsOptional, IsString } from "class-validator";
 
 export class CreateClientDto {
@@ -24,5 +23,4 @@ export class CreateClientDto {
     @IsOptional()
     @IsString()
     password?: string;
-
 }

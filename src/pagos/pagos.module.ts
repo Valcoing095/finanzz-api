@@ -8,5 +8,6 @@ import { Pago } from './entities/pago.entity';
   imports:[TypeOrmModule.forFeature([Pago])],
   controllers: [PagosController],
   providers: [PagosService],
+  exports:[TypeOrmModule,PagosService] //Se usa para poder manejar el modelo repository
 })
 export class PagosModule {}

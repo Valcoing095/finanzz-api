@@ -8,5 +8,6 @@ import { Prestamo } from './entities/prestamo.entity';
   imports:[TypeOrmModule.forFeature([Prestamo])],
   controllers: [PrestamosController],
   providers: [PrestamosService],
+  exports:[TypeOrmModule,PrestamosService]
 })
 export class PrestamosModule {}

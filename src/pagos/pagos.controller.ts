@@ -12,9 +12,7 @@ export class PagosController {
   todos(){
     return 'Listado completo de Prestamos'
   }
-
-
-
+  
   @Post()
   create(@Body() createPagoDto: CreatePagoDto) {
     return this.pagosService.create(createPagoDto);

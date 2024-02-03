@@ -7,7 +7,7 @@ import { UpdatePrestamoDto } from './dto/update-prestamo.dto';
 export class PrestamosController {
   constructor(private readonly prestamosService: PrestamosService) {}
 
-  @Post()
+  @Post('create/prestamo')
   create(@Body() createPrestamoDto: CreatePrestamoDto) {
     return this.prestamosService.create(createPrestamoDto);
   }

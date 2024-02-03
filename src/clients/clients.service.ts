@@ -24,8 +24,11 @@ export class ClientsService {
     return  this.clientRepository.findOneBy(id);
   }
 
-  update(id: number, updateClientDto: UpdateClientDto) {
-    return `This action updates a #${id} client`;
+  update(
+    id: number, 
+    updateClientDto: UpdateClientDto
+    ) {
+    return this.clientRepository.update(id,updateClientDto);
   }
 
   remove(id: number) {

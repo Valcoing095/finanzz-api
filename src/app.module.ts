@@ -21,7 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'finanzz',
       autoLoadEntities : true,
       synchronize: true
-    })
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],

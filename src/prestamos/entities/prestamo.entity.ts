@@ -5,20 +5,23 @@ export class Prestamo {
     id: number;
     
     @Column()
-    id_cliente :number
+    id_cliente:number
     
     @Column()
-    valorDeuda : number
+    valor_deuda: number
     
     @Column()
-    cuotas :number
+    cuotas:number
+
+    @Column({nullable: true})
+    concepto: string
 
     @Column()
-    tasa_interes :number
+    tasa_interes:number
     
     @Column()
-    fecha_inicio  : string
+    fecha_inicio : string
     
     @Column({nullable:true})
-    fecha_Termino : string
+    fecha_Termino: string
 }

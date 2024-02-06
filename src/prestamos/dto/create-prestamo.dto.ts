@@ -7,6 +7,8 @@ export class CreatePrestamoDto {
     @IsNumber()
     valorDeuda: number;
 
+    @IsString()
+    concepto: string
     @IsNumber()
     tasa_interes: number;
     

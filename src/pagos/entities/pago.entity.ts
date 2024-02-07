@@ -10,7 +10,7 @@ export class Pago {
     valor_cuota: number;
 
     @Column()
-    id_deuda: number;
+    id_prestamo: number;
 
     @Column()
     fecha_pago: string;

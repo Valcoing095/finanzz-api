@@ -11,23 +11,18 @@ export class Client {
     @Column()
     apellido?: string;
 
-    @Column()
+    @Column({ nullable: true })
     direccion?: string;
 
     @Column()
     telefono?: string;
 
-    @Column()
+    @Column({ nullable: true })
     email?: string;
 
     @Column( { nullable: true })
     dateRegister?: string;
 
-    @Column( { nullable: true })
-    password?: string;
-
     @DeleteDateColumn()
     deleteAt:Date
-
-
 }

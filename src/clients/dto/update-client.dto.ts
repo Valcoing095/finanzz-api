@@ -20,8 +20,4 @@ export class UpdateClientDto extends PartialType(CreateClientDto) {
     @IsOptional()
     @IsString()
     dateRegister?: string;
-
-    @IsOptional()
-    @IsString()
-    password?: string;
 }

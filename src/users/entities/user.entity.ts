@@ -12,5 +12,5 @@ export class User {
     password: string;
 
     @Column()
-    ceular: string;
+    celular: string;
 }

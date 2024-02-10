@@ -8,6 +8,9 @@ export class User {
     @Column()
     user_name: string;
 
+    @Column({nullable: true})
+    email: string
+
     @Column()
     password: string;
 

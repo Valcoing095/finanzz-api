@@ -20,6 +20,12 @@ export class UsersService {
     return `This action returns all users`;
   }
 
+ async findOneByEmail(email:string){
+    
+    const user = await this.userRepository.findBy({email})
+    return user
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} user`;
   }

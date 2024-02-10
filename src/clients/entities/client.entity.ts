@@ -5,20 +5,20 @@ export class Client {
     @Column({primary: true, generated:true})
     id: number;
 
-    @Column()
-    nombre?: string;
+    @Column({nullable: true})
+    nombre_completo?: string;
     
+    @Column({nullable: true})
+    celular?: string;
+
     @Column()
-    apellido?: string;
+    email?: string;
+
+    @Column({ nullable: true })
+    estado?: string;
 
     @Column({ nullable: true })
     direccion?: string;
-
-    @Column()
-    telefono?: string;
-
-    @Column({ nullable: true })
-    email?: string;
 
     @Column( { nullable: true })
     dateRegister?: string;

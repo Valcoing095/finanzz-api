@@ -68,6 +68,10 @@ $ npm run test:cov
 $ npm i pg 
 $ npm i @types/pg -D
 
+#encriptar contraseña
+$ npm i bcrypt
+$ npm i -D @types/bcrypt
+
 # ORM typeORM 
 $ npm install --save typeorm
 

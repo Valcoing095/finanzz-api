@@ -18,8 +18,8 @@ export class PrestamosService {
 
   }
 
-  findAll() {
-    return `This action returns all prestamos`;
+  findAll() {;
+    return this.prestamoRepositoy.find();
   }
 
   findOne(id: number) {

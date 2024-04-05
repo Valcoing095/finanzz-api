@@ -10,7 +10,6 @@ export class AuthService {
     async signIn(registerDto : RegisterDto){
 
         const user =  await this.userService.findOneByEmail(registerDto.email)
-        registerDto.password = await bcrypt.hash(registerDto.password,10)
         if(user[0]){
             throw new BadRequestException("El Usuario ya se encuentra registrado")
         }

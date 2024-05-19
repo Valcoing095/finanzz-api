@@ -7,6 +7,15 @@ import { UpdateClientDto } from './dto/update-client.dto';
 export class ClientsController {
   constructor(private readonly clientsService: ClientsService) {}
 
+  // Ruta para crear clientes
+  // se deben enviar los siguientes paraetros:
+  // {
+  //   "nombre" : "Carolina Arboleda ",
+  //   "apellido":"Velasco",
+  //   "email" : "Carolina.arboleda@gmail.com",
+  //   "direccion" : "Cra 38A 78-46",
+  //   "telefono" : "3022475080"
+  // }
   @Post('create/client')
   create(@Body() createClientDto: CreateClientDto) {
     return this.clientsService.create(createClientDto);

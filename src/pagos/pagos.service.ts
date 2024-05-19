@@ -12,6 +12,7 @@ export class PagosService {
   
   create(createPagoDto: CreatePagoDto) {
     const pago = this.pagosRepository.create(createPagoDto)
+    console.log(pago)
     return this.pagosRepository.save(pago) ;
   }
 

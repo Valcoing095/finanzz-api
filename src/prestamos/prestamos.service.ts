@@ -22,8 +22,11 @@ export class PrestamosService {
     return this.prestamoRepositoy.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} prestamo`;
+
+  // Trae solo el prestamo epecificado
+  findOne(id) {
+    const prestamo = this.prestamoRepositoy.findOneBy(id)
+    return prestamo;
   }
 
   update(id: number, updatePrestamoDto: UpdatePrestamoDto) {

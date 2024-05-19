@@ -5,10 +5,10 @@ export class CreatePagoDto {
     @IsString()
     descripcion: string
     @IsNumber()
-    valorCuota: number;
+    valor_cuota: number;
     
     @IsNumber()
-    id_deuda?: number;
+    id_prestamo?: number;
     
     @IsString()
     fecha_pago?: string;

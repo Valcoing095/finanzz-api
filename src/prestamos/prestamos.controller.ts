@@ -7,6 +7,15 @@ import { UpdatePrestamoDto } from './dto/update-prestamo.dto';
 export class PrestamosController {
   constructor(private readonly prestamosService: PrestamosService) {}
 
+  // url para crear restamos, se deben enviar como parametros
+    // {
+    // 	"id_cliente":,
+    // 	"valorDeuda":,
+    // 	"cuotas":,
+    // 	"tasa_interes":,
+    // 	"fecha_inicio":"",
+    // 	"concepto":""
+    // }
   @Post('create/prestamo')
   create(@Body() createPrestamoDto: CreatePrestamoDto) {
     return this.prestamosService.create(createPrestamoDto);

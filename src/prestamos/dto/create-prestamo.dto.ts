@@ -5,7 +5,7 @@ export class CreatePrestamoDto {
     id_cliente: number
     
     @IsNumber()
-    valorDeuda: number;
+    valor_deuda: number;
 
     @IsString()
     concepto: string

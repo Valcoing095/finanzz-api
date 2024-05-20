@@ -75,6 +75,9 @@ $ npm i -D @types/bcrypt
 # ORM typeORM 
 $ npm install --save typeorm
 
+#jwt json web tokens
+npm install --save @nestjs/jwt
+
 #validator 
 $ npm i --save class-validator class-transformer
 
@@ -86,9 +89,9 @@ $ npm install --save @nestjs/typeorm typeorm pg #(La base de datos que se vaya  
       type: 'postgres',
       host: 'localhost',
       port: 5432,
-      username: 'postgres',
-      password: "1234",
-      database: 'inlazefriends',
+      username: 'userName',
+      password: "pass",
+      database: 'nameDatabase',
       autoLoadEntities : true,
       synchronize: true
     }),</p>

@@ -77,7 +77,9 @@ $ npm install --save typeorm
 
 #jwt json web tokens
 npm install --save @nestjs/jwt
-
+npm install passport passport-jwt jsonwebtoken
+npm install --save @nestjs/passport passport passport-local
+ npm install --save-dev @types/passport-local
 #validator 
 $ npm i --save class-validator class-transformer
 

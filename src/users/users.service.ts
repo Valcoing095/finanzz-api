@@ -4,15 +4,18 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
 
-  constructor( @InjectRepository(User)
-  private readonly userRepository: Repository<User>){}
+  constructor( @InjectRepository(User) private readonly userRepository: Repository<User>){}
 
-  create(createUserDto: CreateUserDto) {
+  // Registrar un nuevo usuario en el sistema
+  async create(createUserDto: CreateUserDto) {
     const user = this.userRepository.create(createUserDto)
+    const password = await bcrypt.hash(user.password, 10);
+    user.password = password
     return this.userRepository.save(user);
   }
 
@@ -21,7 +24,6 @@ export class UsersService {
   }
 
  async findOneByEmail(email:string){
-    
     const user = await this.userRepository.findBy({email})
     return user
   }

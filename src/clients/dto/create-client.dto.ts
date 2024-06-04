@@ -3,10 +3,7 @@ import {  IsOptional, IsString } from "class-validator";
 export class CreateClientDto {
 
     @IsString()
-    nombre?: string;
-    
-    @IsString()
-    apellido?: string;
+    nombre_completo?: string;
 
     @IsString()
     direccion?: string;

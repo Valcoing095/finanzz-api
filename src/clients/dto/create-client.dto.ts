@@ -9,7 +9,7 @@ export class CreateClientDto {
     direccion?: string;
 
     @IsString()
-    telefono?: string;
+    celular?: string;
 
     @IsString()
     email?: string;

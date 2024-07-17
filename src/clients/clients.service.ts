@@ -12,6 +12,7 @@ export class ClientsService {
     private readonly clientRepository: Repository<Client>){}
 
   create(@Body() createClientDto: CreateClientDto) {
+    console.log(createClientDto)
     const client = this.clientRepository.create(createClientDto)
     return this.clientRepository.save(client) ;
   }

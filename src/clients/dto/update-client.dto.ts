@@ -13,7 +13,7 @@ export class UpdateClientDto extends PartialType(CreateClientDto) {
     direccion?: string;
 
     @IsString()
-    telefono?: string;
+    celular?: string;
 
     @IsString()
     email?: string;

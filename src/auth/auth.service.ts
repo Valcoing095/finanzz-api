@@ -12,7 +12,6 @@ export class AuthService {
     ){}
 
     async signIn(registerDto : RegisterDto){
-
         const user =  await this.userService.findOneByEmail(registerDto.email)
         
         if(user[0]){
@@ -25,7 +24,7 @@ export class AuthService {
     async logIn(request){
         // Se consulta el usuario registrado del sistema
         const user =  await this.userService.findOneByEmail(request.body.email)
-
+        console.log(await bcrypt.compareSync(request.body.Password, user[0]["password"]))
         // Se valida que el correo y la contraseña ingresados sean válidos
         if(await bcrypt.compareSync(request.body.Password, user[0]["password"]) != true || request.body.Email != user[0]["email"]){
             throw new UnauthorizedException()

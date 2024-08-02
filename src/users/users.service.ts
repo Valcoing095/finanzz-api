@@ -14,8 +14,8 @@ export class UsersService {
   // Registrar un nuevo usuario en el sistema
   async create(createUserDto: CreateUserDto) {
     const user = this.userRepository.create(createUserDto)
-    const password = await bcrypt.hash(user.password, 10);
-    user.password = password
+    // const password = await bcrypt.hash(user.password, 10);
+    // user.password = password
     return this.userRepository.save(user);
   }
 
@@ -25,7 +25,7 @@ export class UsersService {
 
  async findOneByEmail(email:string){
     const user = await this.userRepository.findBy({email})
-    return user
+    return user[0]
   }
 
   findOne(id: number) {

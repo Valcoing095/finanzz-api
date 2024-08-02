@@ -4,6 +4,7 @@ import { UsersService } from 'src/users/users.service';
 import { RegisterDto } from './dto/register.dto'; 
 import * as bcrypt from 'bcrypt';
 
+
 @Injectable()
 export class AuthService {
     constructor(
@@ -21,18 +22,36 @@ export class AuthService {
     }
 
 
-    async logIn(request){
-        // Se consulta el usuario registrado del sistema
-        const user =  await this.userService.findOneByEmail(request.body.email)
-        console.log(await bcrypt.compareSync(request.body.Password, user[0]["password"]))
-        // Se valida que el correo y la contraseña ingresados sean válidos
-        if(await bcrypt.compareSync(request.body.Password, user[0]["password"]) != true || request.body.Email != user[0]["email"]){
-            throw new UnauthorizedException()
+    async logIn(request) {
+        // Verificar que el email y la contraseña están presentes en la solicitud
+        console.log(request.body.email)
+        if (!request.body.Email || !request.body.Password) {
+            throw new UnauthorizedException('Email and password are required');
         }
+    
+        // Se consulta el usuario registrado del sistema
+        const user = await this.userService.findOneByEmail(request.body.Email);
+        if (!user) {
+            throw new UnauthorizedException('Invalid credentials');
+        }
+    
+        // Verificar que la contraseña almacenada no es nula ni indefinida
+        if (!user.password) {
+            throw new UnauthorizedException('Invalid credentials');
+        }
+    
+        // Se valida que la contraseña ingresada sea válida
+        console.log(user.password,request.body.Password)
+        if (request.body.Password != user.password) {
+            throw new UnauthorizedException('Invalid credentials');
+        }
+    
         // Servicio de JWT en caso de que el usuario se haya logueado sin problemas
-        const payload = { sub:request.body.password, email: request.body.email}
-
-        return  { status: "success", access_token: await this.jwtService.signAsync(payload,{secret:'Secret key'})};
-
+        const payload = { sub: user.id, email: user.email }; // No incluir la contraseña en el payload
+        const accessToken = await this.jwtService.signAsync(payload, { secret: 'Secret key' });
+    
+        return { status: "success", access_token: accessToken };
     }
+    
+    
 }

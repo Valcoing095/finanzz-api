@@ -11,11 +11,11 @@ export class Prestamo {
     @Column()
     cuotas:number
     
-    @Column({nullable: true})
-    concepto: string
+    // @Column({nullable: true})
+    // concepto: string
     
-    @Column()
-    tasa_interes:number
+    // @Column()
+    // tasa_interes:number
     
     @Column()
     fecha_inicio : string

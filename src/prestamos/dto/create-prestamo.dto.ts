@@ -7,10 +7,10 @@ export class CreatePrestamoDto {
     @IsNumber()
     valor_deuda: number;
 
-    @IsString()
-    concepto: string
-    @IsNumber()
-    tasa_interes: number;
+    // @IsString()
+    // concepto: string
+    // @IsNumber()
+    // tasa_interes: number;
     
     @IsNumber()
     cuotas?: number;

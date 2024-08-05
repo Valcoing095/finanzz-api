@@ -15,7 +15,8 @@ export class AuthService {
     async signIn(registerDto : RegisterDto){
         const user =  await this.userService.findOneByEmail(registerDto.email)
         
-        if(user[0]){
+        console.log(user);
+        if(user){
             throw new BadRequestException("El Usuario ya se encuentra registrado")
         }
         return this.userService.create(registerDto)
@@ -24,7 +25,7 @@ export class AuthService {
 
     async logIn(request) {
         // Verificar que el email y la contraseña están presentes en la solicitud
-        console.log(request.body.email)
+        console.log(request.body.Email)
         if (!request.body.Email || !request.body.Password) {
             throw new UnauthorizedException('Email and password are required');
         }
